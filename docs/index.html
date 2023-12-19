@@ -3,6 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Our Website</title>
+    <style>
+        /* ベースとなるスタイル */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        
+        /* ヘッダースタイル */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* ナビゲーションメニューのスタイル */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        nav ul li {
+            float: left;
+        }
+        
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        
+        /* コンテンツエリアのスタイル */
+        .content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,6 +63,8 @@
             <li><a href="page_privacy_policy.html">Privacy Policy</a></li>
         </ul>
     </nav>
-    <!-- 他のコンテンツ -->
+    <div class="content">
+        <p>Welcome to our website. Here you can find information about our Terms of Service and Privacy Policy.</p>
+    </div>
 </body>
 </html>
