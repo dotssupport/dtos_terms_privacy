@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Our Website</title>
+    <title>利用規約とプライバシーポリシー</title>
     <style>
         /* ベースとなるスタイル */
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #f0f8ff; /* アリスブルー */
             color: #333;
+            line-height: 1.6;
         }
         
         /* ヘッダースタイル */
         header {
-            background-color: #4CAF50;
+            background-color: #003366; /* ダークブルー */
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
         
         /* ナビゲーションメニューのスタイル */
@@ -26,45 +27,58 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #333;
+            background-color: #007bff; /* ブルー */
         }
         
         nav ul li {
-            float: left;
+            display: inline-block;
         }
         
         nav ul li a {
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 12px 24px;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
         
         nav ul li a:hover {
-            background-color: #111;
+            background-color: #0056b3; /* ホバー時には少し暗めのブルー */
         }
         
-        /* コンテンツエリアのスタイル */
+        /* メインコンテンツのスタイル */
         .content {
+            text-align: center;
             padding: 20px;
-            margin-top: 20px;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Website</h1>
+        <h1>利用規約とプライバシーポリシー</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="page_terms.html">Terms of Service</a></li>
-            <li><a href="page_privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="page_terms.html">利用規約</a></li>
+            <li><a href="page_privacy_policy.html">プライバシーポリシー</a></li>
         </ul>
     </nav>
     <div class="content">
-        <p>Welcome to our website. Here you can find information about our Terms of Service and Privacy Policy.</p>
+        <p>当サイトへの訪問ありがとうございます。以下のリンクから、当サイトの利用規約およびプライバシーポリシーをご覧いただけます。</p>
     </div>
+    <footer>
+        <p>© 2023 DoubleOTS. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
