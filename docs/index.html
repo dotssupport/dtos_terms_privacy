@@ -2,83 +2,207 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>利用規約とプライバシーポリシー</title>
+    <title>ポケモン対戦マッチングアプリ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ベースとなるスタイル */
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        :root {
+            --main-color: #007bff;
+            --text-color: #333;
+            --bg-color: #f0f8ff;
+            --header-footer-bg: #003366;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff; /* アリスブルー */
-            color: #333;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
-        
-        /* ヘッダースタイル */
+
         header {
-            background-color: #003366; /* ダークブルー */
+            background-color: var(--header-footer-bg);
             color: white;
+            padding: 2rem 0;
             text-align: center;
-            padding: 1.5rem 0;
+            position: relative;
         }
-        
-        /* ナビゲーションメニューのスタイル */
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #007bff; /* ブルー */
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #0062cc, #6699ff);
         }
-        
-        nav ul li {
-            display: inline-block;
+
+        .container {
+            /* Gridの代わりにFlexboxを使用 */
+            display: flex;
+            flex-direction: column; /* アイテムを縦に並べる */
+            align-items: center; /* 中央揃え */
+            gap: 20px;
         }
-        
-        nav ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 12px 24px;
-            text-decoration: none;
-            transition: background-color 0.3s;
+
+        .card {
+            display: flex; /* Flexboxを有効化 */
+            justify-content: center; /* 水平方向に中央揃え */
+            align-items: center; /* 垂直方向に中央揃え */
+            flex-wrap: wrap; /* 複数の画像がある場合、折り返して表示 */
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%; /* カードの幅をコンテナの幅に合わせる */
+            max-width: 800px; /* カードの最大幅を制限 */
         }
-        
-        nav ul li a:hover {
-            background-color: #0056b3; /* ホバー時には少し暗めのブルー */
+
+        .card img {
+            max-width: 300px; /* 画像の最大幅を制限 */
+            margin: 10px; /* 画像の周りにスペースを追加 */
+            width: 100%; /* 割合に基づく幅でレスポンシブに */
+            height: auto; /* アスペクト比を維持 */
         }
-        
-        /* メインコンテンツのスタイル */
-        .content {
-            text-align: center;
+
+
+
+        /* ホバーエフェクト */
+        .card:hover {
+            transform: scale(1.03); /* カードを少し大きくする */
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3); /* シャドウをさらに強調 */
+        }
+
+
+
+        .card-content {
             padding: 20px;
         }
-        
+
+        .card-content h2 {
+            margin-bottom: 10px;
+        }
+        .notice {
+            background: linear-gradient(to left, #56bff4, rgb(17, 140, 197)); /* グラデーション背景 */
+            color: white; /* テキスト色を変更 */
+            border: none; /* 枠線を取り除く */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* シャドウを強調 */
+        }
+        .notice h2 {
+            border-bottom: 1px solid rgba(255,255,255,0.5); /* タイトルの下に薄い線 */
+            padding-bottom: 10px;
+        }
+
+        .notice ul {
+            list-style: inside square; /* リストスタイル変更 */
+        }
+        .login-notice {
+            display: flex;
+            align-items: center;
+            background-color: #fff; /* または望む背景色 */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0; /* 上下のマージンを追加 */
+            padding: 20px;
+            width: 100%; /* カードの幅をコンテナの幅に合わせる */
+            max-width: 800px; /* カードの最大幅を制限 */
+        }
+
+        .login-notice-image {
+            width: 150px; /* 画像の幅を設定 */
+            margin-right: 20px; /* 画像とテキストの間にスペースを追加 */
+        }
+        .app-link {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .app-link:hover {
+            background-color: #0056b3;
+        }
+
         footer {
-            background-color: #003366;
+            background-color: var(--header-footer-bg);
             color: white;
             text-align: center;
             padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+        }
+
+        .bottom-nav {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--main-color);
+            color: white;
+        }
+
+        .bottom-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>利用規約とプライバシーポリシー</h1>
+        <h1>DoubleOTS</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="page_terms.html">利用規約</a></li>
-            <li><a href="page_privacy_policy.html">プライバシーポリシー</a></li>
-            <li><a href="page_app_versions.html">アプリのバージョン</a></li> <!-- New item here -->
-        </ul>
-    </nav>
-    
-    <div class="content">
-        <p>当サイトへの訪問ありがとうございます。以下のリンクから、当サイトの利用規約およびプライバシーポリシーをご覧いただけます。</p>
+
+    <div class="container">
+        <!-- <div class="card">
+            <img src="images/page_main.png" alt="アプリのスクリーンショット1">
+            <img src="images/page_ranking.png" alt="アプリのスクリーンショット2">
+            <div class="card-content">
+                <h2>マッチング機能</h2>
+                <p>オープンチームシート形式の対戦を気軽にできるアプリです。</p>
+                <a href="https://dots-prod-b0ea6.web.app/" class="app-link">アプリにアクセス</a>
+            </div>
+        </div> -->
+        <!-- ログインに関する注意事項カード -->
+        <!-- <div class="card login-notice">
+            <img src="images/login_warning.png" alt="ログイン注意" class="login-notice-image">
+            <div class="card-content">
+                <h2>ログイン注意事項</h2>
+                <p>上記方法のログインには対応していません。下記のメールまたはGoogleアカウントで登録、ログインして下さい。</p>
+            </div>
+            <img src="images/page_login.png" alt="ログイン画面" class="login-notice-image">
+        </div> -->
+        <!-- 新しい「注意事項」のカード -->
+        <div class="card notice">
+
+            <div class="card-content">
+                <h2>注意事項</h2>
+                <p>本アプリの使用には、以下の点にご注意ください：</p>
+                <ul>
+                    <li>個人情報の保護について十分ご注意ください。</li>
+                    <li>不正なソフトウェアの使用は禁止されています。</li>
+                    <li>他のユーザーに迷惑をかける行為をしないでください。</li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 他のカードを追加する場合は、ここに追加 -->
     </div>
+
+    <div class="bottom-nav">
+        <a href="page_terms.html">利用規約</a> |
+        <a href="page_privacy_policy.html">プライバシーポリシー</a> |
+        <a href="page_app_versions.html">アプリのバージョン</a>
+    </div>
+
     <footer>
         <p>© 2023 DoubleOTS. All Rights Reserved.</p>
     </footer>
