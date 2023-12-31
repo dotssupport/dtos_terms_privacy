@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>アプリのバージョン履歴</title>
+    <!-- スタイルや他のヘッダー情報を含めます -->
+</head>
+<body>
+    <header>
+        <h1>アプリのバージョン履歴</h1>
+    </header>
+    <nav>
+        <!-- ナビゲーションメニュー -->
+    </nav>
+    <div class="content" id="versionList">
+        <!-- バージョン情報がここに表示されます -->
+    </div>
+    <footer>
+        <!-- フッター情報 -->
+    </footer>
+
+    <!-- JavaScriptをここに含めます -->
+    <script>
+        // JSONデータを取得して表示する関数
+        function fetchVersionData() {
+            // ファイルへのパスを 'version_history.json' に修正
+            fetch('version_history.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('ネットワークレスポンスが不正です。');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // JSONデータは配列なので、そのまま使用
+                    const versions = data;
+                    const list = document.getElementById('versionList');
+                    versions.forEach(version => {
+                        const item = document.createElement('div');
+                        item.innerHTML = `<h2>バージョン: ${version.version}</h2>
+                                          <p>リリース日: ${version.releaseDate}</p>
+                                          <p>${version.notes}</p>`;
+                        list.appendChild(item);
+                    });
+                })
+                .catch(error => console.error('エラーが発生しました:', error));
+        }
+      
+        // ページがロードされたときにバージョンデータを取得
+        window.onload = fetchVersionData;
+    </script>
+    
+</body>
+</html>
